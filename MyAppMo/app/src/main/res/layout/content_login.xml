@@ -22,7 +22,7 @@
 
     <TextView
         android:textSize="16dp"
-        android:text="@string/username_title_text"
+        android:text="Username"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -35,7 +35,7 @@
 
     <Button
         android:id="@+id/bLogin"
-        android:text="@string/Login_text"
+        android:text="Login"
         android:layout_height="wrap_content"
         android:layout_width="match_parent" />
 

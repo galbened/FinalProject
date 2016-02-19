@@ -9,17 +9,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".InsertCodeActivity"
-    tools:showIn="@layout/activity_insertcode_activity">
+    tools:context="com.example.moriya.myappmo.MainActivityMo"
+    tools:showIn="@layout/activity_main_activity_mo">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/insertPinCode_text"
-        android:id="@+id/textView"
-        android:layout_below="@+id/connectedUser_textView"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="47dp" />
+        android:text="Insert Pin code"
+        android:id="@+id/textView" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -28,13 +25,5 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/tls" />
-
-    <TextView
-        android:id="@+id/connectedUser_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
