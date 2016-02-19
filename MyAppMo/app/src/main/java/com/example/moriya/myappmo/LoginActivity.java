@@ -6,12 +6,15 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
+    public static final String USER_KEY="com.example.moriya.myappmo.USER";
     Button bLogin;
     EditText etUsername;
 
@@ -40,11 +43,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId())
         {
             case R.id.bLogin:
-                startActivity(new Intent(this, MainActivityMo.class));
+                EditText txt =  (EditText) findViewById(R.id.etUsername);
+                String usr = txt.getText().toString();
+                Log.d("Debug", "**The username: " + usr + " is trying to sign in. verifying him.. ");
+                if (hasPermission(usr)) {
+                    Toast.makeText(this, "Username " + usr + " is verified", Toast.LENGTH_SHORT).show();
+                    Log.d("Debug", "**The username: " + usr + " is verified");
+                    startActivity(new Intent(this, InsertCodeActivity.class).putExtra(USER_KEY,usr));
+                }
+                else{
+                    Toast.makeText(this, "Username " + usr + " has No permission", Toast.LENGTH_SHORT).show();
+                    Log.d("Debug", "**The username: " + usr + " has No permission");
+                }
                 break;
         }
+    }
+
+    private Boolean hasPermission(String name){
+        return name.equals("Admin123");
     }
 }
