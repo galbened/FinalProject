@@ -1,9 +1,5 @@
 <resources>
-    <string name="app_name">PinPadApp</string>
+    <string name="app_name">MyAppMo</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_login">Welcome to PinPad App</string>
-    <string name="Login_text">Sign in</string>
-    <string name="username_title_text">Username</string>
-    <string name="insertPinCode_Title_text">Insert Pin code</string>
-    <string name="insertPinCode_text">Insert your Pin code</string>
+    <string name="title_activity_login">LoginActivity</string>
 </resources>
