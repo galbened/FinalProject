@@ -15,8 +15,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Insert Pin code"
-        android:id="@+id/textView" />
+        android:text="Greetings username"
+        android:id="@+id/tvGreetings"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -25,5 +27,13 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/tls" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please insert pin code"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/tvGreetings"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

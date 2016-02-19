@@ -8,8 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivityMo extends AppCompatActivity {
+
+    TextView tvGreetings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +20,14 @@ public class MainActivityMo extends AppCompatActivity {
         setContentView(R.layout.activity_main_activity_mo);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Bundle b = getIntent().getExtras();
+        String fullName = b.getString("key");
+
+        String greetings = "Hello " + fullName + ",";
+
+        tvGreetings = (TextView) findViewById(R.id.tvGreetings);
+        tvGreetings.setText(greetings);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

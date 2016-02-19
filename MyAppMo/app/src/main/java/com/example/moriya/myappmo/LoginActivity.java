@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.bLogin:
                 Connection con = connectionClass.CONN();
 
-                String query = "select * from Users where userName='" + etUsername.getText() + "'";
+                String query = "select firstName, lastName from Users where userName='" + etUsername.getText() + "'";
                 Statement stmt = null;
                 try {
                     stmt = con.createStatement();
@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 Toast.LENGTH_LONG).show();
                         break;
                     }
-                    fullName = rs.getString("firstName") + " " + rs.getString("secondName");
+                    fullName = rs.getString("firstName") + " " + rs.getString("lastName");
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
