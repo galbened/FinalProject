@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -51,18 +52,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId())
         {
             case R.id.bLogin:
-                Connection con = connectionClass.CONN();
+                Connection conn = connectionClass.CONN();
 
-                String query = "select firstName, lastName from Users where userName='" + etUsername.getText() + "'";
-                Statement stmt = null;
+                String query = "select firstName, lastName from Users where userName = ? ";
+                PreparedStatement stmt = null;
+                String typesUserName = etUsername.getText().toString();
                 try {
-                    stmt = con.createStatement();
+                    stmt = conn.prepareStatement(query);
+                    stmt.setString(1, typesUserName);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
                 String fullName = "";
                 try {
-                    ResultSet rs = stmt.executeQuery(query);
+                    ResultSet rs = stmt.executeQuery();
                     if(!rs.next()) {
                         Toast.makeText(getApplicationContext(), "Username " + etUsername.getText() + " does not exist.",
                                 Toast.LENGTH_LONG).show();
